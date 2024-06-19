@@ -438,3 +438,7 @@ keybindings:
   - command: "exec 'C:\\Users\\peles\\AppData\\Local\\Programs\\IntelliJ IDEA Community Edition\\bin\\idea64.exe'"
     bindings: ["Alt+I"]
 
+  #Launch Obsidian
+  - command: "exec 'C:\\Users\\peles\\AppData\\Local\\Programs\\obsidian\\Obsidian.exe'"
+    bindings: ["Alt+O"]
+
