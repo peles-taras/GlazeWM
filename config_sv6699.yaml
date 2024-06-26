@@ -1,0 +1,372 @@
+general:
+  # Whether to automatically focus windows underneath the cursor.
+  focus_follows_cursor: true
+
+  # Whether to jump the cursor between windows focused by the WM.
+  cursor_follow_focus: true
+
+  # Whether to switch back and forth between the previously focused workspace
+  # when focusing the current workspace.
+  toggle_workspace_on_refocus: true
+
+  # Whether to show floating windows as always on top.
+  show_floating_on_top: true
+
+  # Amount to move floating windows by (eg. when using `alt+<hjkl>` on a floating window)
+  floating_window_move_amount: "10%"
+
+  # *Strongly* recommended to set to 'false'. Whether to globally enable/disable
+  # window transition animations (on minimize, close, etc). Set to 'unchanged'
+  # to make no setting changes.
+  window_animations: false
+
+# Window Management Rules
+define: &MV_WorkSpace_1 '(chrome)'
+define: &MV_WorkSpace_2 '(idea64)'
+define: &MV_WorkSpace_3 '(Spotify)'
+
+gaps:
+  # Gap between adjacent windows.
+  # default 12px
+  inner_gap: "6px"
+
+  # Gap between windows and the screen edge.
+  # default 12px
+  outer_gap: "6px"
+
+# Highlight active/inactive windows with a colored border.
+# ** Exclusive to Windows 11 due to API limitations.
+focus_borders:
+  active:
+    enabled: true
+    color: "#8aadf4"
+
+  inactive:
+    enabled: true
+    color: "#8087a2"
+
+bar:
+  height: "30"
+  position: "top"
+  opacity: 0.99
+  background: "#24273a"
+  foreground: "#cad3f5"
+  font_family: "CaskaydiaCove Nerd Font"
+  font_size: "16px"
+  padding: "0px 3px"
+  # default: offset_x: "6"
+  offset_x: "6"
+  offset_y: "6"
+  border_radius: "6"
+  border_width: "1px"
+  border_color: "#8aadf4"
+  # Separator between components within the bar. `label` is used for each section
+  # of the bar unless `label_{left,center,right}` is explictly set, in which case
+  # they are preferred over default.
+  component_separator:
+    label: "  "
+  components_left:
+    - type: "workspaces"
+      focused_workspace_background: "transparent"
+      focused_workspace_foreground: "#a6da95"
+      displayed_workspace_background: "transparent"
+      displayed_workspace_foreground: "#f5a97f"
+      default_workspace_background: "transparent"
+      default_workspace_foreground: "#8087a2"
+      font_size: "18px"
+    - type: "music"
+      foreground: "#f0c6c6"
+      label_not_playing: "󰝛"
+      label_paused: ". {artist_name}  {song_title}"
+      label_playing: ". {artist_name}  {song_title}"
+      max_title_length: 25
+      max_artist_length: 25
+  # components_center:
+  #   - type: "window title"
+  #     foreground: "#b8c0e0"
+  components_right:
+    - type: 'system tray'
+      label_expand_text: ''
+      label_collapse_text: ''
+      padding: '6px 0px'  
+    - type: "volume"
+      foreground: "#b7bdf8"
+      label_low: "🔊{volume_level}%"
+      label_medium: "🔊{volume_level}%"
+      label_high: "🔊{volume_level}%"
+      label_mute: "🔊{volume_level}%"
+    - type: "cpu"
+      foreground: "#eed49f"
+      label: "󰻠 {percent_usage}%"
+      # How often this counter is refreshed.
+      refresh_interval_ms: 1000
+    # - type: "gpu"
+    #   foreground: "#b8c0e0"
+    #   label: " {percent_usage}%"
+    #   # How often this counter is refreshed.
+    #   refresh_interval_ms: 1000
+    - type: "memory"
+      label: "󰍛 {percent_usage}%"
+      # How often this counter is refreshed.
+      refresh_interval_ms: 1000
+    # - type: "battery"
+    #   label_draining: "󰁿 {battery_level}"
+    #   label_power_saver: "󰌪 {battery_level}"
+    #   label_charging: "󰂅 {battery_level}"
+    #   foreground: "#91d7e3"
+    - type: "weather"
+      foreground: "#8aadf4"
+      latitude: 50.280819
+      longitude: 24.638330
+      label: "{temperature_celsius}°"
+      label_sun: "☀️ {temperature_celsius}°"
+      label_moon: "🌙{temperature_celsius}°"
+      label_cloud_moon: "🌙☁️ {temperature_celsius}°"
+      label_cloud_sun: "⛅{temperature_celsius}°"
+      label_cloud_moon_rain: "🌙🌧️{temperature_celsius}°"
+      label_cloud_sun_rain: "🌦️{temperature_celsius}°"
+      label_cloud_rain: "🌧️{temperature_celsius}°"
+      label_snow_flake: "❄️ {temperature_celsius}°"
+      label_thunderstorm: "⚡{temperature_celsius}°"
+      label_cloud: "☁️ {temperature_celsius}°"
+    # - type: "network"
+    #   foreground: "#c6a0f6"
+    #   label_no_internet: "󰤭"
+    #   label_ethernet: "󱊪"
+    #   label_wifi_strength_0: "󰤯"
+    #   label_wifi_strength_25: "󰤟"
+    #   label_wifi_strength_50: "󰤢"
+    #   label_wifi_strength_75: "󰤥"
+    #   label_wifi_strength_100: "󰤨"
+    - type: "clock"
+      foreground: "#f5a97f"
+      # Documentation on formatting date/time string:
+      # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
+    #  time_formatting: " hh:mm tt "
+      time_formatting: " d MMMM HH:mm:ss "
+
+workspaces:
+  - name: "1"
+  # display_name: " 󰣇"
+    display_name: "1"
+    keep_alive: true
+  - name: "2"
+    display_name: "2"
+  # display_name: " 󰇩 "
+  - name: "3"
+    display_name: "3"
+  #  display_name: " "
+  - name: "4"
+    display_name: "4"
+  #  display_name: "󰊻 "
+  - name: "5"
+    display_name: "5"
+  #  display_name: " "
+  - name: "6"
+    display_name: "6"
+  #  display_name: "󰨞 "
+  - name: "7"
+    display_name: "7"
+  #  display_name: "󰙯 "
+  - name: "8"
+    display_name: "8"
+  #  display_name: " "
+  - name: "9"
+    display_name: "9"
+  #  display_name: "󰖣 "
+
+window_rules:
+  # Task Manager requires admin privileges to manage and should be ignored unless running
+  # the WM as admin.
+  - command: "ignore"
+    match_process_name: "/Taskmgr|ScreenClippingHost/"
+  # Command to run. Use `commands` to specify an array of commands to run in sequence.
+  # - command: "move to workspace 1"
+  #   # Process name to match exactly.
+  #   match_process_name: "Terminal Preview"
+  #   # Window title to match exactly.
+  #   match_title: "/.*/"
+  # - command: "move to workspace 2"
+  #   # Process name to match exactly.
+  #   match_process_name: "edge"
+  #   # Window title to match exactly.
+  #   match_title: "/.*/"
+  # - command: "move to workspace 3"
+  #   # Process name to match exactly.
+  #   # match_process_name: "explorer"
+  #   # Window title to match exactly.
+  #   match_title: "/.*/"
+  # - command: "move to workspace 4"
+  #   # Process name to match exactly.
+  #   match_process_name: "ms-teams"
+  #   # Window title to match exactly.
+  #   match_title: "/.*/"
+  # - command: "move to workspace 5"
+  #   # Process name to match exactly.
+  #   match_process_name: "Outlook"
+  #   # Window title to match exactly.
+  #   match_title: "/.*/"
+  # - command: "move to workspace 6"
+  #   # Process name to match exactly.
+  #   match_process_name: "Code"
+  #   # Window title to match exactly.
+  #   match_title: "/.*/"
+  # - command: "move to workspace 7"
+  #   # Process name to match exactly.
+  #   match_process_name: "Discord"
+  #   # Window title to match exactly.
+  #   match_title: "/.*/"
+  # - command: "move to workspace 8"
+  #   # Process name to match exactly.
+  #   match_process_name: "Spotify"
+  #   # Window title to match exactly.
+  #   match_title: "/.*/"
+  # - command: "move to workspace 9"
+  #   # Process name to match exactly.
+  #   match_process_name: "WhatsApp"
+  #   # Window title to match exactly.
+  #   # match_title: "/.*/"
+  - command: 'move to workspace 1'
+    match_process_name: *MV_WorkSpace_1
+  - command: 'move to workspace 2'
+    match_process_name: *MV_WorkSpace_2
+  - command: 'move to workspace 3'
+    match_process_name: *MV_WorkSpace_3
+  # Launches system dialogs as floating by default (eg. File Explorer save/open dialog).
+  - command: "set floating"
+    match_class_name: "#32770"
+
+  # Some applications (eg. Steam) have borders that extend past the normal border size.
+  - command: "resize borders 0px -7px -7px -7px"
+    match_process_name: "steam"
+
+binding_modes:
+  - name: "resize"
+    keybindings:
+      # Resize focused window by a percentage or pixel amount.
+      - command: "resize width -2%"
+        bindings: ["H", "Left"]
+      - command: "resize width +2%"
+        bindings: ["L", "Right"]
+      - command: "resize height +2%"
+        bindings: ["K", "Up"]
+      - command: "resize height -2%"
+        bindings: ["J", "Down"]
+      # Press enter/escape to return to default keybindings.
+      - command: "binding mode none"
+        bindings: ["Escape", "Enter"]
+
+keybindings:
+  # Focus in a given direction.
+  - command: 'focus left'
+    binding: 'Alt+Left'
+  - command: 'focus right'
+    binding: 'Alt+Right'
+  - command: 'focus up'
+    binding: 'Alt+Up'
+  - command: 'focus down'
+    binding: 'Alt+Down'
+
+  # Move focused window in a given direction.
+  - command: 'move left'
+    binding: 'Alt+Shift+Left'
+  - command: 'move right'
+    binding: 'Alt+Shift+Right'
+  - command: 'move up'
+    binding: 'Alt+Shift+Up'
+  - command: 'move down'
+    binding: 'Alt+Shift+Down'
+
+  # Change focus to a workspace defined in `workspaces` config.'
+  - command: 'focus workspace 1'
+    binding: 'Alt+1'
+  - command: 'focus workspace 2'
+    binding: 'Alt+2'
+  - command: 'focus workspace 3'
+    binding: 'Alt+3'
+  - command: 'focus workspace 4'
+    binding: 'Alt+4'
+  - command: 'focus workspace 5'
+    binding: 'Alt+5'
+  - command: 'focus workspace 6'
+    binding: 'Alt+6'
+  - command: 'focus workspace 7'
+    binding: 'Alt+7'
+
+  # Move focused window to a workspace defined in `workspaces` config.
+  - command: 'move to workspace 1'
+    binding: 'Alt+Shift+1'
+  - command: 'move to workspace 2'
+    binding: 'Alt+Shift+2'
+  - command: 'move to workspace 3'
+    binding: 'Alt+Shift+3'
+  - command: 'move to workspace 4'
+    binding: 'Alt+Shift+4'
+  - command: 'move to workspace 5'
+    binding: 'Alt+Shift+5'
+  - command: 'move to workspace 6'
+    binding: 'Alt+Shift+6'
+  - command: 'move to workspace 7'
+    binding: 'Alt+Shift+7'
+
+  # Resize focused window by a percentage or pixel amount.
+  - command: 'resize width -10px'
+    binding: 'Alt+Control+Right'
+  - command: 'resize width +10px'
+    binding: 'Alt+Control+Left'
+  - command: 'resize height +10px'
+    binding: 'Alt+Control+Down'
+  - command: 'resize height -10px'
+    binding: 'Alt+Control+Up'
+
+  # Change the tiling direction.
+  - command: 'tiling direction toggle'
+    binding: 'Alt+V'
+
+  # Change the focused window to be floating / tiling.
+  - command: 'toggle floating'
+    binding: 'Alt+Space'
+
+  # Toggle focused window to be maximized / unmaximized.
+  - command: 'toggle maximized'
+    binding: 'Alt+F'
+
+  # Minimize focused window.
+  - command: 'set minimized'
+    binding: 'Alt+Shift+M'
+
+  # Close focused window.
+  - command: 'close'
+    binding: 'Alt+Q'
+
+  # Re-evaluate configuration file.
+  - command: 'reload config'
+    binding: 'Alt+Shift+R' 
+ 
+  # Launch Windows Explorer
+  - command: 'exec explorer'
+    binding: 'Alt+E'
+
+  # Launch Taskmanager
+  - command: 'exec Taskmgr'
+    binding: 'Alt+Escape'
+  
+  #Launch Chromuim
+  - command: "exec 'C:\\Users\\peles\\AppData\\Local\\Chromium\\Application\\chrome.exe'"
+    bindings: ["Alt+B"]
+
+  #Launch PowerShell
+  - command: "exec wt"
+    bindings: ["Alt+X"]
+
+  #Launch Spotify
+  - command: "exec 'C:\\Users\\peles\\AppData\\Roaming\\Spotify\\Spotify.exe'"
+    bindings: ["Alt+S"]
+
+  #Launch IntellIJ IDEA
+  - command: "exec 'C:\\Users\\peles\\AppData\\Local\\Programs\\IntelliJ IDEA Community Edition\\bin\\idea64.exe'"
+    bindings: ["Alt+I"]
+
+  #Launch Obsidian
+  - command: "exec 'C:\\Users\\peles\\AppData\\Local\\Programs\\obsidian\\Obsidian.exe'"
+    bindings: ["Alt+O"]
