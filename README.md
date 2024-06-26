@@ -7,4 +7,6 @@
 ## <h1 align="center" style="font-color: red;">This is an eddied version of sv6699's GlazeWM config </h1>
 
 <h1 align="center">Screenshot:</h1>
-![image](https://github.com/sonahx/GlazeWM/assets/92885035/7a8b5371-f90f-4dcb-a8db-77ec5f489ba7)
+
+![image](https://github.com/sonahx/GlazeWM/assets/92885035/85ff06b2-79c5-4004-a3da-28a72d75945c)
+
